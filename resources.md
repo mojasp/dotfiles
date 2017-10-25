@@ -1,11 +1,11 @@
 # list of resources for vim, tmux, etc... 
 List of resources enable ide-features using vim+tmux
 
-* [article about vim+tmux containing a tmux.conf] (https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match)
-* [article describing fzf, tmux, ack, ag workflows] (https://statico.github.io/vim3.html)
+* [article about vim+tmux containing a tmux.conf](https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match)
+* [article describing fzf, tmux, ack, ag workflows](https://statico.github.io/vim3.html)
 * [article describing a basic, pretty slim vimrc with alot of explanations.](https://dougblack.io/words/a-good-vimrc.html#colors) "dont put anything into your vimrc you dont understadn!". Probably a bit outdated, recommands pathogen and ctrlp
-* [tmux cheatsheet] (https://gist.github.com/henrik/1967800)
-* [article describing project-wide search and replace using :cdo.] (https://chrisarcand.com/vims-new-cdo-command/) Enables arbitray vim-cmd execution on quickfix list
+* [tmux cheatsheet](https://gist.github.com/henrik/1967800)
+* [article describing project-wide search and replace using :cdo.](https://chrisarcand.com/vims-new-cdo-command/) Enables arbitray vim-cmd execution on quickfix list
 
 ### gdb
 
