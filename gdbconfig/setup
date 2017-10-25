@@ -1,0 +1,5 @@
+dashboard -layout expressions history memory source stack threads
+
+dashboard history -style limit 10
+
+dashboard -style syntax_highlighting "paraiso-dark"
