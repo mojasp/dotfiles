@@ -10,5 +10,8 @@ Vim Plugins that need some additional installation steps are:
 * YouCompleteMe 
 * solarized, need to set the terminal colorscheme too, i think i used [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
 
+gdbconfig/init and gdbconfig/alias files are .gitconfig files, to be placed in ~/.gitconfig.d/ and used in conjunction with (gdbdashboard)[https://github.com/cyrus-and/gdb-dashboard]  
+You need to install pygments for the syntax-highlighting to work: pip3 install pygments
+
 A more detailed installation manual will follow once i need to setup my environment the next time
 
