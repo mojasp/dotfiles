@@ -11,3 +11,4 @@ List of resources enable ide-features using vim+tmux
 
 * [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard) 
 * [cppconf-2016 talk](https://github.com/CppCon/CppCon2016/blob/master/Tutorials/GDB%20-%20a%20lot%20more%20than%20you%20realized/GDB%20-%20a%20lot%20more%20than%20you%20realized%20-%20Greg%20Law%20-%20CppCon%202016.pdf). Describes reverse debugging, gdb-python-extensions, catchpoints, multithread-debugging, alot of other magic
+* [python pretty printer example, haven't used it yet though.](https://gcc.gnu.org/git/?p=gcc.git;a=blob_plain;f=libstdc%2b%2b-v3/python/libstdcxx/v6/printers.py;hb=HEAD)
