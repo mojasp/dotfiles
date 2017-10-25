@@ -1,6 +1,7 @@
 # dotfiles
 
-.init is the neovim init file, to be placed in .config/nvim/
+init.vim is the neovim init file, to be placed in .config/nvim/
+tmux.conf is the tmux configuration file, to be placed inside the home-directory as .tmux.conf
 
 Vim Plugins that need some additional installation steps are:
 * [vim-plug](https://github.com/junegunn/vim-plug)
