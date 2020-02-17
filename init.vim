@@ -1,23 +1,12 @@
 call plug#begin('~/.config/nvim/autoload')
 
-Plug 'freitass/todo.txt-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'altercation/vim-colors-solarized'
 
 "tmux integration
 Plug 'christoomey/vim-tmux-navigator'
-
-""ide features
-"CTags
-Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc'
-"language client
-"Plug 'autozimu/LanguageClient-neovim', {
-"			\ 'branch': 'next',
-"			\ 'do': 'bash install.sh',
-"			\ }
-"
-""completion
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -96,9 +85,15 @@ set hlsearch		"highlightsearch by default
 "add errorfmt for doctest
 set efm+=%f(%l)\ %m
 
+"cmake integration
+set makeprg=make\ -C\ build
+command Cmake !mkdir -p build && pushd build && cmake .. && popd
+
 """"""""""""""""""""""
 "Plugin configuration"
 """"""""""""""""""""""
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16_grayscale'
 
 let g:rustfmt_command = 'cargo +nightly fmt'
 
@@ -106,7 +101,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 let g:solarized_termcolors=256
-set background=dark
 colorscheme solarized
 
 if executable('ag')
