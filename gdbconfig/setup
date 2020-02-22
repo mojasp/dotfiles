@@ -1,5 +1,5 @@
-dashboard -layout expressions history memory source stack threads
+dashboard -layout threads stack history memory expressions variables source 
 
-dashboard history -style limit 10
+dashboard history -style limit 5
 
 dashboard -style syntax_highlighting "paraiso-dark"

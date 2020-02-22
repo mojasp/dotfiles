@@ -46,6 +46,9 @@ nmap <F3> :set hlsearch!<CR>
 nmap <F4> :set relativenumber!<CR>
 nmap <F4> :TagbarToggle!<CR>
 imap <C-BS> <C-W>
+" "accept" autocompleteion - end current line by inserting semicolon and
+" starting next line
+imap <C-A> <Esc>A;<CR>
 
 "run script
 "nmap <F7> :!sh run.sh <CR>
