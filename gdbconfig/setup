@@ -1,5 +1,29 @@
-dashboard -layout threads stack history memory expressions variables source 
+define hookpost-up
+  dashboard
+end
+
+define hookpost-down
+  dashboard
+end
+
+define hookpost-frame
+  dashboard
+end
+
+define hookpost-print
+  dashboard
+end
+
+dashboard variables -style compact False
+dashboard variables -style align True
 
 dashboard history -style limit 5
 
 dashboard -style syntax_highlighting "paraiso-dark"
+
+define dsource
+  dashboard -layout source stack breakpoints history !variables
+  dashboard source -style height 20
+end
+
+dsource
