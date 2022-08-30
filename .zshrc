@@ -1,8 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin/bin:$HOME/bin:/$PATH
+export PATH=$HOME/.local/bin:$HOME/bin/bin:$HOME/bin:/$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/moritz/.oh-my-zsh"
+export TERMINAL="alacritty"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -11,9 +12,7 @@ export ZSH="/home/moritz/.oh-my-zsh"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/ If set to an empty array, this variable will have no effect.  ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 ZSH_THEME="avit"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -62,16 +61,28 @@ export FZF_BASE=~/.config/nvim/autoload/fzf
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  fzf
-  tmux
-  vi-mode
-)
+#
 
+plugins=(
+  zsh-dircolors-solarized
+  fzf
+  vi-mode
+  tmux
+  git
+  extract #swiss army knife extract
+  colored-man-pages
+  colorize #cat with syntax highlight
+  command-not-found #suggest package if cmd not found
+  poetry
+)
 source $ZSH/oh-my-zsh.sh
+
+#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+#autoload -Uz compinit
+#compinit
+
+RPROMPT=''
 
 # User configuration
 
@@ -80,7 +91,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
+bindkey -v
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -97,7 +110,60 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias cds="cd ~/Documents/Studium/Studienarbeit/repo"
-alias gdbdash="tmux send-keys -t .0 gdb Space -ex Space \'dashboard Space -output Space `tty`\' Space Enter"
+alias ll="lsd -lh"
+alias l="lsd -lah"
+alias cdp="cd ~/Documents/Studium/Praktikum"
+alias gdbdash="tmux send-keys -t .0 gdb Space -ex Space \'dashboard Space -output Space `tty`\' Space Enter; tmux select-pane -t .0"
+alias vi="nvim"
+alias vim="nvim"
 
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin \
+                                           /usr/local/bin  \
+                                           /usr/sbin       \
+                                           /usr/bin        \
+                                           /sbin           \
+                                           /bin
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#ripgrep 
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+#change tmux session dir to current working dir
+function tcwd {
+    tmux command-prompt "attach -c \"#{pane_current_path}\""
+ }
+#attach or create main tmux session - unfortunately broken as of tmux 3.2
+#function tmain {
+#    tmux new -A -s tm_main
+#}
+
+    
+function bt_off {
+    bluetoothctl power off
+}
+function bt_b {
+    bluetoothctl power on && bluetoothctl connect 78:2B:64:13:12:F8
+}
+function bt_a {
+    bluetoothctl power on && bluetoothctl connect 00:10:61:13:52:5E
+}
+
+function rgvim {
+    choice=$(rg -il "$*" | fzf -0 -1 --ansi --preview "cat {} | rg --color=ansi -i \"$*\" --context 3")
+    if [ $choice ]
+    then
+        lc=$(echo "$*" | tr '[:upper:]' '[:lower:]')
+        nvim "+/""$lc" $choice
+
+    fi
+}
+
+gdb-tmux() {
+    local id="$(tmux split-pane -hPF "#D" "tail -f /dev/null")"
+    tmux last-pane
+    local tty="$(tmux display-message -p -t "$id" '#{pane_tty}')"
+    gdb -ex "dashboard -output $tty" "$@"
+    tmux kill-pane -t "$id"
+}
+
+export PATH="$HOME/.poetry/bin:$PATH"
