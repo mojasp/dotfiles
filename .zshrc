@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:$HOME/bin/bin:$HOME/bin:/$PATH
+export PATH=$HOME/.local/bin:$HOME/bin/bin:$HOME/bin:/$PATH:$HOME/.local/bin/zig-linux-x86_64-0.11.0-dev.479+f68bfe2eb
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/moritz/.oh-my-zsh"
@@ -57,7 +57,7 @@ unsetopt correctall
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-export FZF_BASE=~/.config/nvim/autoload/fzf
+#export FZF_BASE=~/.config/nvim/autoload/fzf
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -66,7 +66,6 @@ export FZF_BASE=~/.config/nvim/autoload/fzf
 
 plugins=(
   zsh-dircolors-solarized
-  fzf
   vi-mode
   tmux
   git
@@ -112,8 +111,16 @@ bindkey -v
 
 alias ll="lsd -lh"
 alias l="lsd -lah"
+
 alias cdp="cd ~/Documents/Studium/Praktikum"
+alias cdl="cd ~/Documents/Studium/Praktikum/sketches/lcm_proof_of_concept/lcm"
+
+alias pwdy="pwd | xclip"
+alias cdv="cd `xclip -o`"
+
 alias gdbdash="tmux send-keys -t .0 gdb Space -ex Space \'dashboard Space -output Space `tty`\' Space Enter; tmux select-pane -t .0"
+
+alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 

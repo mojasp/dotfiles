@@ -1,6 +1,3 @@
-alias uw = dashboard expressions unwatch
+alias wu = dashboard expressions unwatch
 alias wc = dashboard expressions clear
-
-alias mw = dashboard memory watch
-alias muw = dashboard memory unwatch
-alias mc = dashboard memory clear
+alias wv = dashboard expressions watch
