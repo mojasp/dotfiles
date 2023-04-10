@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:$HOME/bin/bin:$HOME/bin:/$PATH:$HOME/.local/bin/zig-linux-x86_64-0.11.0-dev.479+f68bfe2eb
-
+export PATH=$HOME/.local/bin:$HOME/bin/bin:$HOME/bin:/$PATH:$HOME/.local/bin/zig-linux-x86_64-0.11.0-dev.632+d69e97ae1
 # Path to your oh-my-zsh installation.
 export ZSH="/home/moritz/.oh-my-zsh"
 export TERMINAL="alacritty"
@@ -116,13 +115,19 @@ alias cdp="cd ~/Documents/Studium/Praktikum"
 alias cdl="cd ~/Documents/Studium/Praktikum/sketches/lcm_proof_of_concept/lcm"
 
 alias pwdy="pwd | xclip"
-alias cdv="cd `xclip -o`"
+alias cdv="cd \`xclip -o\`"
 
 alias gdbdash="tmux send-keys -t .0 gdb Space -ex Space \'dashboard Space -output Space `tty`\' Space Enter; tmux select-pane -t .0"
 
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias grep="rg"
+
+alias :w="cowsay 'You are not in vim anymore.'"
+alias :q="cowsay 'You are not in vim anymore.'"
+alias :wq="cowsay 'You are not in vim anymore.'"
+alias :x="cowsay 'You are not in vim anymore.'"
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin \
                                            /usr/local/bin  \

@@ -1,0 +1,31 @@
+{
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "highlight": { "lsRanges" : true }
+            }
+        },
+        
+        "zls" : {
+            "command": "/home/moritz/dev/zig_resources/zls/zig-cache/bin/zls",
+            "filetypes": ["zig"]
+        }
+    },
+
+    "jedi.diagnostics.didSave" : true,
+
+    "jedi.workspace.symbols.ignoreFolders": [
+        ".nox",
+        ".tox",
+        ".venv",
+        "__pycache__",
+        "venv"
+    ],
+    "jedi.workspace.extraPaths":["/usr/local/lib/python3.10/site-packages"]
+}
